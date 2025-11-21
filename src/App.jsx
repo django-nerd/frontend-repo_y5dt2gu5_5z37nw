@@ -1,71 +1,69 @@
+import Hero from './components/Hero'
+import Features from './components/Features'
+import Showcase from './components/Showcase'
+import Pricing from './components/Pricing'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
-
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
-            </div>
-
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
+    <div className="min-h-screen bg-[#0a0a0f] text-white">
+      {/* Navbar */}
+      <header className="sticky top-0 z-40 backdrop-blur border-b border-white/10 bg-black/20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-8 rounded-md bg-gradient-to-br from-[#1C69D4] to-[#8E44AD]" />
+            <span className="font-semibold tracking-tight">BimmerHub</span>
           </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
+          <nav className="hidden sm:flex items-center gap-6 text-sm text-white/80">
+            <a href="#features" className="hover:text-white">Features</a>
+            <a href="#pricing" className="hover:text-white">Pricing</a>
+            <a href="#community" className="hover:text-white">Community</a>
+          </nav>
+          <div className="flex items-center gap-3">
+            <button className="hidden sm:inline-flex px-4 py-2 rounded-xl border border-white/15 bg-white/5">Sign in</button>
+            <button className="px-4 py-2 rounded-xl bg-[#1C69D4] text-white font-semibold">Create Free Account</button>
           </div>
         </div>
-      </div>
+      </header>
+
+      {/* Sections */}
+      <Hero />
+      <Features />
+      <Showcase />
+      <Pricing />
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 bg-black/30">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 py-10 grid md:grid-cols-3 gap-8 text-white/70">
+          <div>
+            <div className="font-semibold text-white">BimmerHub</div>
+            <p className="mt-3 text-sm">BMW, M, and all model designations are trademarks of BMW AG. BimmerHub is an independent enthusiast platform not affiliated with BMW AG.</p>
+          </div>
+          <div className="grid grid-cols-2 gap-6 text-sm">
+            <div className="space-y-2">
+              <div className="text-white font-medium">Product</div>
+              <a href="#" className="block hover:text-white">Features</a>
+              <a href="#" className="block hover:text-white">Pricing</a>
+              <a href="#" className="block hover:text-white">Events</a>
+              <a href="#" className="block hover:text-white">Clubs</a>
+            </div>
+            <div className="space-y-2">
+              <div className="text-white font-medium">Company</div>
+              <a href="#" className="block hover:text-white">About</a>
+              <a href="#" className="block hover:text-white">Careers</a>
+              <a href="#" className="block hover:text-white">Contact</a>
+              <a href="#" className="block hover:text-white">Privacy</a>
+            </div>
+          </div>
+          <div className="text-sm">
+            <div className="text-white font-medium">Join the community</div>
+            <div className="mt-3 flex gap-3">
+              {['Instagram','TikTok','YouTube','Twitter','Discord'].map((s)=> (
+                <span key={s} className="px-3 py-1 rounded-full border border-white/10 bg-white/5">{s}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
